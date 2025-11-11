@@ -17,12 +17,11 @@ const userSchema = new Schema({
     },
     isVerified:{
         type: Boolean,
-        required: true,
+        default: false,
     },
-    otp:{
-        type: Number,
-        requried: true,
-    },
+    verificationToken: { 
+        type: String 
+    }, 
     bio:{
         type: String,
     },
@@ -33,13 +32,13 @@ const userSchema = new Schema({
     role:{
         type: String,
         required: true,
-        enum: ["admin", "manager", "user"]
+        enum: ["admin", "lecture", "user"]
     },
 },{
     timestamps: true,
 })
 
 
-const User = mongoose.Schema("User",userSchema);
+const User = mongoose.model("User",userSchema);
 
 module.exports = User;
