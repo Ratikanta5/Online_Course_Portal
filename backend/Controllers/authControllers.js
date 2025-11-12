@@ -32,6 +32,7 @@ module.exports.register = async (req, res) => {
     { expiresIn: "1d" } // expires in 1 day
   );
 
+
   newUser.verificationToken = verificationToken;
   await newUser.save();
 
